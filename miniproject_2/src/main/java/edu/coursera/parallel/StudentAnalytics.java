@@ -1,9 +1,7 @@
 package edu.coursera.parallel;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -46,7 +44,11 @@ public final class StudentAnalytics {
      */
     public double averageAgeOfEnrolledStudentsParallelStream(
             final Student[] studentArray) {
-        throw new UnsupportedOperationException();
+        return Stream.of(studentArray).parallel()
+                .filter(Student::checkIsCurrent)
+                .mapToDouble(Student::getAge)
+                .average()
+                .orElse(0.0);
     }
 
     /**
@@ -71,7 +73,7 @@ public final class StudentAnalytics {
         for (Student s : inactiveStudents) {
             if (nameCounts.containsKey(s.getFirstName())) {
                 nameCounts.put(s.getFirstName(),
-                        new Integer(nameCounts.get(s.getFirstName()) + 1));
+                        nameCounts.get(s.getFirstName()) + 1);
             } else {
                 nameCounts.put(s.getFirstName(), 1);
             }
@@ -100,7 +102,15 @@ public final class StudentAnalytics {
      */
     public String mostCommonFirstNameOfInactiveStudentsParallelStream(
             final Student[] studentArray) {
-        throw new UnsupportedOperationException();
+        Map<String, Long> counts = Arrays.stream(studentArray).parallel()
+                .filter(s -> !s.checkIsCurrent())
+                .map(Student::getFirstName)
+                .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
+
+        return Objects.requireNonNull(counts.entrySet().stream().parallel()
+                .max(Comparator.comparingLong(Map.Entry::getValue))
+                .orElse(null))
+                .getKey();
     }
 
     /**
@@ -136,6 +146,10 @@ public final class StudentAnalytics {
      */
     public int countNumberOfFailedStudentsOlderThan20ParallelStream(
             final Student[] studentArray) {
-        throw new UnsupportedOperationException();
+        return (int) Stream.of(studentArray).parallel()
+                .filter(s -> !s.checkIsCurrent())
+                .filter(s -> s.getGrade() < 65)
+                .filter(s -> s.getAge() > 20)
+                .count();
     }
 }
