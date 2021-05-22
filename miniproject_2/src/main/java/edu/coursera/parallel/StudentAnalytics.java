@@ -9,6 +9,7 @@ import java.util.stream.Stream;
  */
 public final class StudentAnalytics {
     /**
+     * TODO: enhance algorithm and measure it
      * Sequentially computes the average age of all actively enrolled students
      * using loops.
      *
@@ -34,7 +35,6 @@ public final class StudentAnalytics {
     }
 
     /**
-     * TODO compute the average age of all actively enrolled students using
      * parallel streams. This should mirror the functionality of
      * averageAgeOfEnrolledStudentsImperative. This method should not use any
      * loops.
@@ -92,7 +92,6 @@ public final class StudentAnalytics {
     }
 
     /**
-     * TODO compute the most common first name out of all students that are no
      * longer active in the class using parallel streams. This should mirror the
      * functionality of mostCommonFirstNameOfInactiveStudentsImperative. This
      * method should not use any loops.
@@ -134,7 +133,6 @@ public final class StudentAnalytics {
     }
 
     /**
-     * TODO compute the number of students who have failed the course who are
      * also older than 20 years old. A failing grade is anything below a 65. A
      * student has only failed the course if they have a failing grade and they
      * are not currently active. This should mirror the functionality of
