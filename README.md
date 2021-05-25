@@ -3,9 +3,9 @@ This project explores Parallel, Concurrent and Distributed programming in Java b
 
 - Parallel Programming In Java
     - [x] Task Parallelism - Imperative Fork/Join framework, Amdahl’s Law, Computation Graph
-    - [ ] Functional Parallelism - Functional FJ framework, Stream API
-    - [ ] Loop Parallelism
-    - [ ] Data flow Synchronization and Pipelining
+    - [x] Functional Parallelism - Functional FJ framework, Stream API, Data Races and Determinism
+    - [x] Loop Parallelism - Parallelize for Matrix Multiplication and One-Dimensional Iterative Averaging 
+    - [x] Data flow Synchronization and Pipelining - Optimization with Phaser, Data Pipeline Parallelism
     
 - Concurrent Programming In Java
 - Distributed Programming In Java
