@@ -7,5 +7,10 @@ This project explores Parallel, Concurrent and Distributed programming in Java b
     - [x] Loop Parallelism - Parallelize for Matrix Multiplication and One-Dimensional Iterative Averaging 
     - [x] Data flow Synchronization and Pipelining - Optimization with Phaser, Data Pipeline Parallelism
     
-- Concurrent Programming In Java
 - Distributed Programming In Java
+    - [ ] Distributed Map Reduce - Hadoop, Spark, RDD, PageRank
+    - [ ] Client-Server Programming - 
+    - [ ] Message Passing -
+    - [ ] Combining Distribution and Multithreading - 
+
+- Concurrent Programming In Java
